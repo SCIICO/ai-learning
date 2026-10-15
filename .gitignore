@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# 环境与密钥
+.env
+*.pem
+
+# 数据与模型（大文件不入库）
+data/raw/
+*.parquet
+*.bin
+*.safetensors
+
+# 工具产物
+.ipynb_checkpoints/
+.ruff_cache/
+.pytest_cache/
+mlruns/
+dist/
+build/
+
+# 系统
+.DS_Store
+Thumbs.db
