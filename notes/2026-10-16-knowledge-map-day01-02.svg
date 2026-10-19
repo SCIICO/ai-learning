@@ -1,0 +1,90 @@
+<svg viewBox="0 0 680 476" width="100%" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Day 1-2 知识点关系图</title>
+<desc>四层知识结构：环境地基、版本控制、容器运行、平台矩阵，以及隔离强度升级等关键关系。</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<g>
+<rect x="40" y="40" width="160" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="120" y="60" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#0C447C">Windows + PATH</text>
+<text x="120" y="78" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5">命令寻址 · 生效顺序</text>
+</g>
+<g>
+<rect x="215" y="40" width="150" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="290" y="60" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#0C447C">VS Code</text>
+<text x="290" y="78" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5">环境快照 · 需重启</text>
+</g>
+<g>
+<rect x="380" y="40" width="180" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="470" y="60" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#085041">Python + venv</text>
+<text x="470" y="78" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">激活 = PATH 前插</text>
+</g>
+
+<g>
+<rect x="40" y="150" width="160" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="120" y="170" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#0C447C">git 三区模型</text>
+<text x="120" y="188" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5">工作区→暂存→本地</text>
+</g>
+<g>
+<rect x="215" y="150" width="150" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="290" y="170" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#0C447C">SSH 密钥</text>
+<text x="290" y="188" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5">挑战-应答认证</text>
+</g>
+<g>
+<rect x="380" y="150" width="180" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="470" y="170" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#0C447C">GitHub 远端</text>
+<text x="470" y="188" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#185FA5">origin · -u 跟踪绑定</text>
+</g>
+
+<g>
+<rect x="40" y="260" width="160" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="120" y="280" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#085041">WSL2</text>
+<text x="120" y="298" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">Linux 内核 · 容器后端</text>
+</g>
+<g>
+<rect x="245" y="260" width="170" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="330" y="280" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#085041">Docker daemon</text>
+<text x="330" y="298" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">client 遥控 · 加速器代购</text>
+</g>
+<g>
+<rect x="475" y="260" width="165" height="56" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="557" y="280" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#085041">镜像 → 容器</text>
+<text x="557" y="298" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">只读模板 → 运行实例</text>
+</g>
+
+<g>
+<rect x="40" y="370" width="190" height="56" rx="8" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="135" y="390" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#2C2C2A">Hugging Face</text>
+<text x="135" y="408" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">模型 · 数据集平台</text>
+</g>
+<g>
+<rect x="245" y="370" width="180" height="56" rx="8" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="335" y="390" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#2C2C2A">Weights &amp; Biases</text>
+<text x="335" y="408" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">实验追踪 · 训练曲线</text>
+</g>
+<g>
+<rect x="440" y="370" width="200" height="56" rx="8" fill="#F1EFE8" stroke="#B4B2A9" stroke-width="0.5"/>
+<text x="540" y="390" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="500" fill="#2C2C2A">Kaggle</text>
+<text x="540" y="408" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#5F5E5A">数据集 · 竞赛 · 免费 GPU</text>
+</g>
+
+<path d="M120 96 L120 140" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="131" y="122" font-size="12" fill="#5F5E5A" dominant-baseline="central">PATH 寻址</text>
+
+<path d="M600 96 L600 252" fill="none" stroke="#0F6E56" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="592" y="196" text-anchor="end" font-size="12" fill="#0F6E56">隔离强度升级</text>
+
+<path d="M200 288 L239 288" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="219" y="272" text-anchor="middle" font-size="12" fill="#5F5E5A">承载</text>
+
+<path d="M415 288 L469 288" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="442" y="272" text-anchor="middle" font-size="12" fill="#5F5E5A">创建</text>
+
+<rect x="40" y="440" width="12" height="12" rx="3" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="58" y="446" font-size="12" fill="#5F5E5A" dominant-baseline="central">隔离与运行机制</text>
+<rect x="180" y="440" width="12" height="12" rx="3" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="198" y="446" font-size="12" fill="#5F5E5A" dominant-baseline="central">工具与平台</text>
+</svg>
