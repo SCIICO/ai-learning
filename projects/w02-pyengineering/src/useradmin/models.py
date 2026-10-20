@@ -2,7 +2,7 @@
 Author: SCIICO 1114259706@qq.com
 Date: 2026-10-19 09:53:33
 LastEditors: SCIICO 1114259706@qq.com
-LastEditTime: 2026-10-19 10:39:27
+LastEditTime: 2026-10-20 10:12:15
 FilePath: \ai-learning\\projects\\w02-pyengineering\\models.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 '''
@@ -36,7 +36,9 @@ def parse_age(raw:str | None)->int | None:
 
 
 if __name__ == "__main__":
-    r = RegisterRequest(username="sciico", password="123456", age="25")
+    r = RegisterRequest.model_validate(
+        {"username":"sciico", "password":"123456", "age":"25"}
+        )
     print(type(r.age),r.age)
 
     u = InternalUser(id=1, username="sciico", email="sciico@example.com")
@@ -47,5 +49,5 @@ if __name__ == "__main__":
 
 
 #RegisterRequest(username="x",email="sciico@example.com",age="abc")
-bad = InternalUser(id="oops", username=123, email="e")
+bad = InternalUser(id="oops", username=123, email="e")# type: ignore[arg-type]
 print(bad)
