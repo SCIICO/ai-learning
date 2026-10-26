@@ -5,6 +5,7 @@ description = "w2 练习:用户注册数据模型"
 requires-python = ">=3.12"
 dependencies = [
     "pydantic>=2.7",
+    "pydantic-settings>=2.16.1",
 ]
 
 [build-system]
