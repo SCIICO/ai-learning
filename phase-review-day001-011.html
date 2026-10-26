@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阶段总结 · Day 001–011 · 环境筑基与 Python 工程化</title>
+<style>
+:root{--bg:#f4f6fa;--card:#fff;--soft:#eef1f7;--text:#14171f;--t2:#4a5162;--t3:#7d8698;--bd:#e1e5ee;--pri:#4f46e5;--pri-soft:#eceafe;--teal:#0d9488;--teal-soft:#e1f5ee;--amber:#b45309;--amber-soft:#fdf1de;--red:#dc2626;--red-soft:#fdeaea;--green:#00875f;--green-soft:#e3f7f1;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-size:15px;line-height:1.75;font-family:"PingFang SC","Microsoft YaHei",-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header{padding:46px 0 30px;border-bottom:1px solid var(--bd);background:linear-gradient(180deg,rgba(79,70,229,.07),transparent)}
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:700;color:var(--pri);background:var(--pri-soft);padding:5px 13px;border-radius:999px;margin-bottom:14px}
+h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+h1 em{font-style:normal;color:var(--pri)}
+.lead{color:var(--t2);max-width:820px}
+.meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:22px;padding-top:18px;border-top:1px dashed var(--bd)}
+.meta div b{display:block;font-size:21px;font-weight:800}
+.meta div span{font-size:12px;color:var(--t3)}
+section{padding:34px 0 10px}
+h2{font-size:21px;font-weight:800;letter-spacing:-.01em;margin-bottom:6px}
+h2 small{font-size:13px;font-weight:600;color:var(--t3);margin-left:8px}
+.kicker{font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--pri);margin-bottom:6px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:var(--r);padding:20px 22px;margin:14px 0;box-shadow:0 1px 2px rgba(20,23,31,.04)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+h3{font-size:15.5px;font-weight:750;margin-bottom:8px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:5px;margin-right:6px;vertical-align:1px}
+.tg-env{background:var(--pri-soft);color:var(--pri)}.tq-quality{background:var(--green-soft);color:var(--green)}
+.tg-bound{background:var(--amber-soft);color:var(--amber)}.tg-face{background:#f0eaff;color:#5b34cc}.tg-learn{background:var(--soft);color:var(--t2)}
+ul{padding-left:20px}.li li{margin:5px 0}
+li b{color:var(--text)}
+.muted{color:var(--t3);font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:13.8px}
+th{background:var(--soft);text-align:left;padding:9px 12px;font-weight:700;border-bottom:1.5px solid var(--bd)}
+td{padding:9px 12px;border-bottom:1px solid var(--bd);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td b{color:var(--pri)}
+.diff{border-left:4px solid var(--red);background:var(--red-soft);padding:13px 16px;border-radius:10px;margin:8px 0;font-size:13.8px}
+.fix{border-left:4px solid var(--green);background:var(--green-soft);padding:13px 16px;border-radius:10px;margin:8px 0;font-size:13.8px}
+.map-note{font-size:13px;color:var(--t3);margin-top:8px}
+footer{padding:30px 0 50px;color:var(--t3);font-size:13px;border-top:1px solid var(--bd);margin-top:30px}
+@media(max-width:820px){.grid2,.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">阶段性总结 · 2026-10-15 → 10-26 · 第 12 天</div>
+  <h1>环境筑基与 <em>Python 工程化</em>：学到了什么、怎么用、还差什么</h1>
+  <p class="lead">覆盖 23 周计划的前 11 天（W1 环境与热身全部 + W2 Python 工程化 I 全部 + W3 开篇第一天）。本报告回答三个问题：知识点的全貌与关联是什么？它们在真实工作里怎么用？当前的短板和改进方向在哪？</p>
+  <div class="meta">
+    <div><b>11</b><span>天 / 计划完成 5.3%</span></div>
+    <div><b>14</b><span>测试全绿（覆盖率 100%）</span></div>
+    <div><b>100%</b><span>mypy 类型检查通过</span></div>
+    <div><b>20+</b><span>踩坑并自行解决</span></div>
+    <div><b>61%</b><span>29 题阶段自测保留率</span></div>
+    <div><b>1</b><span>可交付正规包（useradmin）</span></div>
+  </div>
+</header>
+
+<!-- ============ 知识地图 ============ -->
+<section>
+  <div class="kicker">PART 01</div>
+  <h2>五条知识主线 <small>知识点不是散点，是五条互相咬合的链</small></h2>
+  <div class="card">
+    <ul class="li">
+      <li><span class="tag tg-env">环境与隔离</span><b>venv（PATH 前插）→ uv venv / uv sync（锁定）→ src layout → Docker 容器（未来）</b> —— 隔离强度逐级递进：包隔离 → 项目隔离 → 系统级隔离。共同目标：任何机器上一条命令复现完全一致的环境。</li>
+      <li><span class="tag tg-env">代码资产流</span><b>git 三区 → GitHub 远端 → rebase 修分叉 → git mv / --follow 追族谱 → PR 与 CI（本周接入）</b> —— 代码的保存、同步、追溯、协作全靠这条链；提交历史即项目履历。</li>
+      <li><span class="tag tq-quality">质量防线</span><b>类型注解 + mypy（静态）→ pytest 四武器（动态）→ 约束矩阵 + 覆盖率（度量）→ pre-commit / CI（自动化，本周）</b> —— 错误前移的四道关卡：写错时抓 → 跑时抓 → 度量盲区 → 提交前全量拦截。</li>
+      <li><span class="tag tg-bound">边界与观测</span><b>pydantic 安检门 → model_validate（外部 dict）→ pydantic-settings + .env（配置边界）→ logging 结构化日志（观测边界）→ request_id 链路（下周）</b> —— 全部在处理同一个问题：**不可信的外部世界如何安全地进入你的系统，且出了事能查到线索**。</li>
+      <li><span class="tag tg-face">交付门面</span><b>__init__ 门面（__all__）→ README 六节 → 5 分钟陌生人测试</b> —— 把「我能跑」变成「别人也能跑」；接口稳定、文档可信、接管成本趋零。</li>
+    </ul>
+    <p class="map-note">第五条「学习方法论」（踩坑索引 / 发现式调试 / 遗忘曲线自测 / 陌生人测试）是横切所有主线的元技能——它决定前四条链的牢固程度。</p>
+  </div>
+</section>
+
+<!-- ============ 分域知识点 ============ -->
+<section>
+  <div class="kicker">PART 02</div>
+  <h2>分域知识点清单 <small>按域归档，标注掌握深度</small></h2>
+  <div class="grid2">
+    <div class="card"><h3>🧰 环境与版本控制</h3>
+      <ul class="li">
+        <li>venv 本质：带解释器的文件夹，激活 = PATH 前插</li>
+        <li>git 三区模型：add / commit / push 的搬运路径</li>
+        <li>SSH 挑战-应答：私钥永不上传，密码不上网</li>
+        <li>non-fast-forward 三步法：fetch → log 区间 → rebase</li>
+        <li>rebase 改写历史：hash 由「内容+父提交」决定</li>
+        <li>where.exe 排查命令归属；VS Code 环境快照</li>
+        <li>git mv + rename 检测（83%）+ log --follow</li>
+      </ul>
+    </div>
+    <div class="card"><h3>🐍 Python 工程化</h3>
+      <ul class="li">
+        <li>类型注解三价值：错误前移 / 注解即文档 / 敢重构</li>
+        <li>list[int]、str | None 等核心语法</li>
+        <li>装饰器 vs 继承：@ = 加工，括号 = 是什么</li>
+        <li>dunder 与 __main__ 入口；模块顶层只放声明</li>
+        <li>pyproject（意图）vs uv.lock（事实）；sync 多退少补</li>
+        <li>运行时依赖 vs dev 依赖组（PEP 735）</li>
+        <li>包门面：相对导入 / __all__ / __version__</li>
+      </ul>
+    </div>
+    <div class="card"><h3>🛡️ 质量防线</h3>
+      <ul class="li">
+        <li>dataclass vs pydantic：储物柜 vs 安检门</li>
+        <li>model_validate 收 dict；必填 = 无默认值字段</li>
+        <li>错误类型码阅读：missing / int_parsing / arg-type</li>
+        <li>pytest 四武器：assert / fixture / parametrize / raises+match</li>
+        <li>表驱动约束矩阵；边界值必测（0/150 开关点）</li>
+        <li>覆盖率：体检指标非 KPI；pragma 显式管理缺口</li>
+        <li>三阶段失败形态：collection / setup / FAILED</li>
+      </ul>
+    </div>
+    <div class="card"><h3>📡 边界与观测（W3 开篇）</h3>
+      <ul class="li">
+        <li>print 四宗罪：不可关 / 无级别 / 无上下文 / 无法收集</li>
+        <li>logging 五级别 = 过滤旋钮；getLogger(__name__) 署名</li>
+        <li>结构化日志：一条记录而非一句话，可检索可串联</li>
+        <li>pydantic-settings：.env + env_prefix + 密钥分离</li>
+        <li>.env 入 gitignore；配置类型校验白送</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card" style="border-left:4px solid var(--pri)">
+    <h3>📚 学习方法论（横切元技能）</h3>
+    <ul class="li">
+      <li><b>验收标准驱动</b>：每个学习日先定「做到什么程度算完成」</li>
+      <li><b>踩坑索引</b>：报错 → 原因 → 解法 三段式沉淀，16+ 条可检索</li>
+      <li><b>发现式调试</b>：先跑真实失败、读原文，再编码断言——不凭记忆猜</li>
+      <li><b>遗忘曲线自测</b>：3 天节点盲测；本轮实测「动手型 75% vs 概念型 17%」</li>
+      <li><b>陌生人测试</b>：文档的唯一真实性检验</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 工作场景映射 ============ -->
+<section>
+  <div class="kicker">PART 03</div>
+  <h2>真实工作场景映射 <small>这些知识在入职后的日常里长什么样</small></h2>
+  <div class="card">
+    <table>
+      <tr><th style="width:20%">工作情境</th><th style="width:26%">动用的知识</th><th style="width:30%">具体做法</th><th>带来的价值</th></tr>
+      <tr><td><b>接手同事的项目</b></td><td>src layout · pyproject · uv sync</td><td>clone → <code>uv sync</code> 一条命令起环境 → 按 README 跑通</td><td>上手成本从半天踩坑降到 5 分钟；环境与你同事完全一致</td></tr>
+      <tr><td><b>修改老功能</b></td><td>pytest 安全网 · git 分支</td><td>先跑测试存基线 → 开分支修改 → 全绿才合并；改坏了测试立刻红</td><td>重构敢下手；「改 A 坏 B」当场暴露而非上线后爆炸</td></tr>
+      <tr><td><b>开发新接口</b></td><td>dataclass / pydantic 选型 · 类型注解</td><td>外部请求体用 pydantic 模型（自动校验+报 422），内部传递用 dataclass；mypy 全程把关</td><td>脏数据在边界被拦，错误在写代码时暴露而非半夜在线上</td></tr>
+      <tr><td><b>排查线上问题</b></td><td>结构化日志 · 级别旋钮</td><td>关键动作记 <code>logger.info(event=..., user_id=...)</code>；出事时按字段检索、按级别过滤噪音</td><td>分钟级定位（日志字段检索）vs 翻 print 大海碰运气</td></tr>
+      <tr><td><b>修一个 bug</b></td><td>回归防线 · pytest.raises</td><td>先写一个能复现 bug 的失败测试 → 修代码到绿 → 测试永久留下</td><td>同一个 bug 在这个项目里永不复发</td></tr>
+      <tr><td><b>管理密钥与配置</b></td><td>.env · pydantic-settings · gitignore</td><td>密钥进 .env（不入库），代码只声明字段；dev/prod 用不同 .env 切换</td><td>密钥零泄露风险；换环境不改一行代码</td></tr>
+      <tr><td><b>团队协作提交</b></td><td>commit 范围前缀 · rebase · --follow</td><td>push 被拒先 fetch 诊断；冲突用 rebase 保历史直线；改名用 git mv 保族谱</td><td>历史可追溯、可审查；code review 时同事看得懂每一笔</td></tr>
+      <tr><td><b>向他人交付项目</b></td><td>README 六节 · 包门面 · 陌生人测试</td><td>按六节模板写文档 → 自己扮陌生人只按文档跑通</td><td>接管成本趋零；你休假时团队不会瘫痪</td></tr>
+    </table>
+  </div>
+  <p class="muted">共同规律：<b>每条知识的价值都不是孤立的「会用命令」，而是把某类事故的发生时点从「线上/深夜」前移到「写代码的当下」</b>——这就是工程素养的经济学。</p>
+</section>
+
+<!-- ============ 难点与改进 ============ -->
+<section>
+  <div class="kicker">PART 04</div>
+  <h2>应用难点与改进方向 <small>诚实的短板清单，按优先级排序</small></h2>
+
+  <div class="diff"><b>难点 1 · 概念型知识 4 天遗忘 83%。</b>Day 006 的测试理念（三重身份/金字塔/值得测）自测只剩 17%——不是没学过，是学完没有复用场景。<br>
+  <b>改进</b>：概念必须挂到实操钩子上。W3 后半写日志测试、接 CI 时强制复用；周日重测 Day 006 概念套件，及格线 80%。</div>
+
+  <div class="diff"><b>难点 2 · 测试只覆盖纯函数。</b>目前的 14 个测试全是无副作用函数（parse_age/activate）。真实工作里大量代码带 IO、网络、时间——这些还没测过。<br>
+  <b>改进</b>：W3 起引入 fixture 进阶（临时文件、monkeypatch）；遇到带 IO 的函数时先问「怎么把它设计成可测的」。</div>
+
+  <div class="diff"><b>难点 3 · 结构化日志只有观念没有形态。</b>今天用 basicConfig 打出了 <code>INFO:useradmin.models:...</code>，但字段化输出（JSON/键值对）还没实操。<br>
+  <b>改进</b>：D12 立即落地——formatter 输出键值对，为下周 request_id 链路铺路。</div>
+
+  <div class="diff"><b>难点 4 · 质量防线未闭环。</b>mypy 和 pytest 目前靠手动跑，没有强制力——忘跑就形同虚设。<br>
+  <b>改进</b>：本周 D13–15 接入 pre-commit（提交时自动检查）+ GitHub Actions（push 时自动跑测试），让防线自动化。</div>
+
+  <div class="diff"><b>难点 5 · 练习包太小，真实复杂度未遇到。</b>useradmin 只有一个模块三个函数；依赖冲突、循环导入、性能问题都没现身。<br>
+  <b>改进</b>：不焦虑——W4 数据管道周会引入真实数据规模，W8 FastAPI 会引入真实接口复杂度。能力在项目里长，不在练习里。</div>
+
+  <div class="fix"><b>已确认的改进机制（保持）</b>：① 踩坑索引持续沉淀（16 条）；② 每日验收标准先行；③ 阶段自测 + 遗忘曲线重测（W10/W18 工具栈重测待触发）；④ README 陌生人测试（<span style="color:var(--red)">待确认已执行</span>）；⑤ 教学模式：讲解 → 自己动手 → 验证。</div>
+</section>
+
+<!-- ============ 下一阶段 ============ -->
+<section>
+  <div class="kicker">PART 05</div>
+  <h2>下一站 <small>W3 剩余 · 服务工程化</small></h2>
+  <div class="card">
+    <ul class="li">
+      <li><b>D12（周二）</b>：结构化日志落地 + 配置环境切换</li>
+      <li><b>D13–14（周三/四）</b>：代码规范自动化（pre-commit + ruff + black）——难点 4 的第一刀</li>
+      <li><b>D15（周五）</b>：GitHub Actions CI——让质量防线全自动</li>
+      <li><b>D16（周六）</b>：W3 工程化自查交付；<b>D17（周日）</b>：复盘 + 概念套件重测（80% 线）</li>
+    </ul>
+    <p class="muted">W3 结束时，你的 useradmin 包将具备：结构化日志、自动格式化、CI 红绿灯——一个「生产味」的仓库雏形。</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="padding:0">
+    <b>阶段总结 · Day 001–011</b> · 生成于 2026-10-26 · 配套：<code>notes/学习笔记.md</code>（Day 001–011 详情）· <code>daily-plan.html</code>（23 周计划看板）<br>
+    下一次工具栈重测：W10 末 · 下一次阶段总结：W3 收官（Day 017）
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
