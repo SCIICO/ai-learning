@@ -1,14 +1,14 @@
-'''
+"""
 Author: SCIICO 1114259706@qq.com
 Date: 2026-10-21 09:54:29
 LastEditors: SCIICO 1114259706@qq.com
 LastEditTime: 2026-10-22 10:51:46
 FilePath: \ai-learning\\projects\\w02-pyengineering\tests\test_models.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
-'''
+"""
+
 import pytest
 from pydantic import ValidationError
-
 from useradmin.models import (
     InternalUser,
     RegisterRequest,
@@ -16,65 +16,65 @@ from useradmin.models import (
     parse_age,
 )
 
+
 # 1)fixture : 给多个测试复用的现成用户
 @pytest.fixture
 def sample_user() -> InternalUser:
-    return InternalUser(
-        id = 1,
-        username="sciico",
-        email="sciico@example.com"
-    )
+    return InternalUser(id=1, username="sciico", email="sciico@example.com")
 
 
-@pytest.mark.parametrize("raw,expected", [
-    ("25", 25),
-    ("0", 0),
-    (None, None),
-    ("abc", None),
-])
+@pytest.mark.parametrize(
+    "raw,expected",
+    [
+        ("25", 25),
+        ("0", 0),
+        (None, None),
+        ("abc", None),
+    ],
+)
 def test_parse_age(raw: str | None, expected: int | None) -> None:
     assert parse_age(raw) == expected
 
 
-
-
-
-
-#2)参数化: parse_age 的多组输入()
-@pytest.mark.parametrize("payload,match", [
-    ({"username":"sciico", "password":"123456", "age":0}, None),
-    ({"username":"sciico", "password":"123456", "age":150}, None),
-    ({"username":"sciico", "password":"123456", "age":-1}, "greater than or equal "),
-    ({"username":"sciico", "password":"123456", "age":151},  "less than or equal "),
-    ({"username":"sciico", "password":"123456", "age":"abc"},  "valid integer"),
-    ({"username":"sciico", "age":20}, "password"),
-    ({"username":"", "password":"123456", "age":20}, None),
-])
-
-
-
-
-
-def test_register_matrix(payload : dict, match:str | None) -> None:
+# 2)参数化: parse_age 的多组输入()
+@pytest.mark.parametrize(
+    "payload,match",
+    [
+        ({"username": "sciico", "password": "123456", "age": 0}, None),
+        ({"username": "sciico", "password": "123456", "age": 150}, None),
+        (
+            {"username": "sciico", "password": "123456", "age": -1},
+            "greater than or equal ",
+        ),
+        (
+            {"username": "sciico", "password": "123456", "age": 151},
+            "less than or equal ",
+        ),
+        ({"username": "sciico", "password": "123456", "age": "abc"}, "valid integer"),
+        ({"username": "sciico", "age": 20}, "password"),
+        ({"username": "", "password": "123456", "age": 20}, None),
+    ],
+)
+def test_register_matrix(payload: dict, match: str | None) -> None:
     if match is None:
         r = RegisterRequest.model_validate(payload)
         assert r.age == payload["age"]
     else:
-        with pytest.raises(ValidationError,match = match):
+        with pytest.raises(ValidationError, match=match):
             RegisterRequest.model_validate(payload)
 
 
-
-
-#3)fixture 使用+状态变更验证
-def test_activate(sample_user:InternalUser) -> None:
+# 3)fixture 使用+状态变更验证
+def test_activate(sample_user: InternalUser) -> None:
     result = activate(sample_user)
     assert result.activated is True
 
-#4异常路径:两个ValidationError场景
+
+# 4异常路径:两个ValidationError场景
 def test_register_rejects_bad_age() -> None:
     with pytest.raises(ValidationError):
         RegisterRequest(username="sciico", password="123456", age=-1)
+
 
 def test_register_rejects_all_fields() -> None:
     with pytest.raises(ValidationError):

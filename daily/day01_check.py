@@ -5,6 +5,7 @@
 
 全部打印为 [PASS] 即代表第一日验收通过。
 """
+
 import sys
 from pathlib import Path
 
@@ -19,7 +20,9 @@ def main() -> None:
 
     # 2. Python 版本
     ok = sys.version_info >= (3, 12)
-    print(f"[{'PASS' if ok else 'FAIL'}] Python 版本：{sys.version.split()[0]}（要求 >= 3.12）")
+    print(
+        f"[{'PASS' if ok else 'FAIL'}] Python 版本：{sys.version.split()[0]}（要求 >= 3.12）"
+    )
 
     # 3. 仓库结构
     root = Path(__file__).resolve().parent.parent
