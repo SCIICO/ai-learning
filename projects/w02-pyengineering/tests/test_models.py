@@ -9,6 +9,7 @@ Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查�
 
 import pytest
 from pydantic import ValidationError
+
 from useradmin.models import (
     InternalUser,
     RegisterRequest,
