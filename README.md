@@ -2,10 +2,12 @@
  * @Author: SCIICO 1114259706@qq.com
  * @Date: 2026-10-15 14:01:56
  * @LastEditors: SCIICO 1114259706@qq.com
- * @LastEditTime: 2026-10-23 09:54:25
+ * @LastEditTime: 2026-11-02 09:15:18
  * @FilePath: \ai-learning\README.md
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
+
+[![CI](https://github.com/SCIICO/ai-learning/actions/workflows/ci.yml/badge.svg)](https://github.com/SCIICO/ai-learning/actions/workflows/ci.yml)
 # ai-learning
 
 30 周 AI 转岗学习大本营（LLM 应用工程师 × MLOps/AI 平台双轨）。
