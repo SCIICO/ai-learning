@@ -2,6 +2,15 @@
 Author: SCIICO 1114259706@qq.com
 Date: 2026-11-02 10:52:24
 LastEditors: SCIICO 1114259706@qq.com
+LastEditTime: 2026-11-05 11:09:30
+FilePath: \ai-learning\\projects\\w04-data\analysis.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+"""
+
+"""
+Author: SCIICO 1114259706@qq.com
+Date: 2026-11-02 10:52:24
+LastEditors: SCIICO 1114259706@qq.com
 LastEditTime: 2026-11-02 12:04:54
 FilePath: \ai-learning\\projects\\w04-data\analysis.py
 Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
@@ -55,3 +64,9 @@ pvt = df.pivot_table(
     fill_value=0,
 )
 print(pvt)
+
+# gen_data.py 末尾追加
+pd.DataFrame(
+    {"city": ["北京", "上海", "广州"], "population": [2189, 2487, 1874]}
+).to_csv("city_pop.csv", index=False, encoding="utf-8-sig")
+print("city_pop.csv 已生成")
